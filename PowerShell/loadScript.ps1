@@ -26,4 +26,4 @@
     $code = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/TobiasPSP/OReilly/main/PowerShell/$id1-$id2.ps1"
     
     $code.Trim() | Set-ClipBoard
-    Write-Host "Listing $id1-$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
+    Write-Host "Listing $id1.$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
