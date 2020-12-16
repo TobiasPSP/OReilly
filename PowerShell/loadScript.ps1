@@ -5,7 +5,7 @@
         $Id
     )
     
-    $AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12' 
+    $AllProtocols = [System.Net.SecurityProtocolType]'Tls12' 
     [System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
     
     try
