@@ -1,6 +1,6 @@
  param
     (
-        [Parameter(Mandatory,HelpMessage='Geben Sie die Listingnummer im Format X-Y ein, z.B. 1-2')]
+        [Parameter(Mandatory,HelpMessage='Geben Sie die Listingnummer im Format X.Y ein, z.B. 1.2')]
         [string]
         $Id
     )
@@ -10,7 +10,7 @@
     
     try
     {
-        $parts = $id.Split('-')
+        $parts = $id.Split('.')
         if ($parts.Count -ne 2) { throw "Invalid" }
         $id1= [int]$parts[0]
         $id2= [int]$parts[1]
