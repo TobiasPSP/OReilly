@@ -8,9 +8,7 @@ Wir haben ausdrücklich darauf verzichtet, den Zugang zu diesen Materialien mit 
 Die Codebeispiele dürfen von den Lesern des Buches in jeder Form (privat oder kommerziell) unverändert oder verändert weiterverwendet werden. Gern dürfen Sie die Codebeispiele auch dann herunterladen und nutzen, wenn Sie das Buch *nicht* besitzen, solange Sie damit nicht den Geist der folgenden Absprachen verletzen.
 
 #### Bitte nicht
-Bitte vereinnahmen Sie die Skripte nicht für andere Zwecke und respektieren Sie den fairen Umgang. 
-
-Nicht erlaubt ist beispielsweise, den Beispielcode
+Bitte vereinnahmen Sie die Skripte nicht für andere Zwecke und respektieren Sie den fairen Umgang. Nicht erlaubt ist beispielsweise, den Beispielcode
 
 * als Codesammlung z.B. auf Ihrem eigenen Blog zu veröffentlichen.
 * als Grundlage für Schulungsmaterialien einzusetzen und/oder Ihren Schulungsteilnehmern zugänglich zu machen. Das Buch und die Beispiele sind ausdrücklich für Schulungen entwickelt worden. Wenn Sie sie dafür einsetzen, dann verwenden Sie bitte das Buch als Schulungsgrundlage für Ihre Kursteilnehmer.
