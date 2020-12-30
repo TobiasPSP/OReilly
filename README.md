@@ -5,5 +5,7 @@ Dieses Repository enthält die [Codebeispiele und Materialien](https://github.co
 [Hier](https://github.com/TobiasPSP/OReilly/discussions) können Sie Fragen stellen, Druckfehler melden und Anregungen geben.
 
 Viel Spaß mit PowerShell und meinem Buch!
+
 Ihr
+
 Tobias Weltner
