@@ -24,5 +24,6 @@ Nicht erlaubt ist beispielsweise, den Beispielcode
 Für inhaltliche Fragen, Anregungen und Kommentare erreichen Sie mich im [Diskussionsbereich](https://github.com/TobiasPSP/OReilly/discussions).
 
 Vielen Dank und beste Grüße
+
 Tobias Weltner
 
