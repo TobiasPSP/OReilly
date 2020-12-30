@@ -15,7 +15,7 @@ Nicht erlaubt ist, den Beispielcode
 * als Codesammlung z.B. auf Ihrem eigenen Blog zu veröffentlichen
 * als Grundlage für Schulungsmaterialien einzusetzen und/oder Ihren Schulungsteilnehmern zugänglich zu machen. Das Buch und die Beispiele sind ausdrücklich für Schulungen entwickelt worden. Wenn Sie sie dafür einsetzen, dann verwenden Sie bitte das Buch als Schulungsgrundlage für Ihre Kursteilnehmer.
 
-## Gerne
+### Gerne
 * Wenn Sie *ausgewählte* Skripts im Rahmen eines größeren Artikels in eigenen Blogs veröffentlichen möchten, um sie zum Beispiel dort zu diskutieren oder vorzustellen, dann ist das nicht nur gestattet, sondern sehr willkommen. Bitte geben Sie in diesem Fall als Quelle das Buch an und/oder verlinken Sie auf diese Seite.
 * Selbstverständlich dürfen Sie die Skripte als Inspirationsquelle für eigene Skripte nutzen und in eigenem Code verwenden. Sobald Sie ein Skript maßgeblich verändern, erlischt das Copyright, und das Copyright geht auf Sie über. Über einen kleinen Hinweis zur Inspirationsquelle würde ich mich selbstverständlich freuen.
 * Die Codebeispiele und das Buch eignen sich hervorragend als Schulungsgrundlage, denn sie sind das Ergebnis jahrelanger Erfahrung in der Industrie. Möchten Sie den Code in Schulungen einsetzen, dann verwenden Sie bitte das Buch als Schulungsunterlage für die Teilnehmer Ihres Kurses. Die Schulungsteilnehmer erhalten mit dem Buch ein wertvolles Nachschlagewerk für die Zeit nach dem Kurs, wenn sie auf sich allein gestellt die erlernten Inhalte vertiefen.
