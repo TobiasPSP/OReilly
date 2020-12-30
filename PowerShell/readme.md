@@ -5,7 +5,7 @@ Um Ihnen den Umgang mit den vielen Codebeispielen des Buches zu erleichtern, fin
 Wir haben ausdrücklich darauf verzichtet, den Zugang zu diesen Materialien mit umständlichen Zugangscodes oder ähnlichem abzusichern, denn ich glaube, es ist jedem bewusst, wieviel Arbeit in diesem Buch und seinen sorgfältig erstellten Beispielen steckt. Ich bin mir sicher, dass Sie die folgenden Copyright-Hinweise nachvollziehen können und beachten.
 
 ### Copyright
-Die Codebeispiele dürfen von den Lesern meines Buches in jeder Form (privat oder kommerziell) unverändert oder verändert weiterverwendet werden. Gern dürfen Sie die Codebeispiele auch dann herunterladen und nutzen, wenn Sie das Buch nicht besitzen.
+Die Codebeispiele dürfen von den Lesern des Buches in jeder Form (privat oder kommerziell) unverändert oder verändert weiterverwendet werden. Gern dürfen Sie die Codebeispiele auch dann herunterladen und nutzen, wenn Sie das Buch nicht besitzen.
 
 #### Bitte nicht
 Bitte vereinnahmen Sie die Skripte nicht für andere Zwecke und respektieren Sie den fairen Umgang. 
