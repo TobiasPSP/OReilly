@@ -18,7 +18,7 @@ Nicht erlaubt ist beispielsweise, den Beispielcode
 #### Gerne
 * Wenn Sie *ausgewählte* Skripts im Rahmen eines größeren Artikels in eigenen Blogs veröffentlichen möchten, um sie zum Beispiel dort zu diskutieren oder vorzustellen, dann ist das nicht nur gestattet, sondern sehr willkommen. Bitte geben Sie in diesem Fall als Quelle das Buch an und/oder verlinken Sie auf diese Seite.
 * Selbstverständlich dürfen Sie die Skripte als Inspirationsquelle für eigene Skripte nutzen und in eigenem Code verwenden. Sobald Sie ein Skript maßgeblich verändern, erlischt das Copyright, und das Copyright geht auf Sie über. Über einen kleinen Hinweis zur Inspirationsquelle würde ich mich selbstverständlich freuen.
-* Die Codebeispiele und das Buch eignen sich hervorragend als Schulungsgrundlage, denn sie sind das Ergebnis jahrelanger Erfahrung in der Industrie. Möchten Sie den Code in Schulungen einsetzen, dann verwenden Sie bitte das Buch als Schulungsunterlage für die Teilnehmer Ihres Kurses. Die Schulungsteilnehmer erhalten mit dem Buch ein wertvolles Nachschlagewerk für die Zeit nach dem Kurs, wenn sie auf sich allein gestellt die erlernten Inhalte vertiefen.
+* Die Codebeispiele und das Buch eignen sich didaktisch hervorragend als Schulungsunterlage und sind das Ergebnis jahrelanger Schulungserfahrung. Das Buch den Kursteilnehmern auch über den Kurs hinaus die erlernten Inhalte zu vertiefen und nachhaltig werden zu lassen.
 * Bei Fragen zum Copyright und den Verwendungsmöglichkeiten erreichen Sie mich gern jederzeit per [Email](mailto:tobias@powershell.one).
 
 Für inhaltliche Fragen, Anregungen und Kommentare erreichen Sie mich im [Diskussionsbereich](https://github.com/TobiasPSP/OReilly/discussions).
