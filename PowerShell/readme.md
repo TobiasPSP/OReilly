@@ -12,7 +12,7 @@ Bitte vereinnahmen Sie die Skripte nicht für andere Zwecke und respektieren Sie
 
 Nicht erlaubt ist beispielsweise, den Beispielcode
 
-* als Codesammlung z.B. auf Ihrem eigenen Blog zu veröffentlichen
+* als Codesammlung z.B. auf Ihrem eigenen Blog oder als "Tips & Tricks"-Kolumnen zu veröffentlichen.
 * als Grundlage für Schulungsmaterialien einzusetzen und/oder Ihren Schulungsteilnehmern zugänglich zu machen. Das Buch und die Beispiele sind ausdrücklich für Schulungen entwickelt worden. Wenn Sie sie dafür einsetzen, dann verwenden Sie bitte das Buch als Schulungsgrundlage für Ihre Kursteilnehmer.
 
 #### Gerne
