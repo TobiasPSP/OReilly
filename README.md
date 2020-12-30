@@ -6,6 +6,4 @@ Dieses Repository enthält die [Codebeispiele und Materialien](https://github.co
 
 Viel Spaß mit PowerShell und meinem Buch!
 
-Ihr
-
-Tobias Weltner
+Ihr Tobias Weltner
