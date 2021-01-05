@@ -1,4 +1,4 @@
-﻿PS> Get-Process *muse* | Select-Object -Property Name, Path
+PS> Get-Process *muse* | Select-Object -Property Name, Path
 
 Name       Path
 ----       ----

@@ -1,1 +1,1 @@
-﻿Read-Host -Prompt 'Geburtstag' | Get-Date -Format '"Sie sind ein" dddd"s-Kind!"'
+Read-Host -Prompt 'Geburtstag' | Get-Date -Format '"Sie sind ein" dddd"s-Kind!"'

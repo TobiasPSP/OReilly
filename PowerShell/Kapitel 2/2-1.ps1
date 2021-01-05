@@ -1,4 +1,4 @@
-﻿# neuen Ordner anlegen (Fehler ignorieren):
+# neuen Ordner anlegen (Fehler ignorieren):
 New-Item -Path c:\report -ItemType Directory -ErrorAction Ignore
 
 # Batterie-Report der letzten 14 Tage generieren 

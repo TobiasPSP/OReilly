@@ -1,4 +1,4 @@
-﻿function prompt {
+function prompt {
    'PS> '
    $host.UI.RawUI.WindowTitle = Get-Location
 }

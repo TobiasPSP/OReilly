@@ -1,4 +1,4 @@
-﻿# Wurzelordner der Profilskripte ermitteln
+# Wurzelordner der Profilskripte ermitteln
 $path = Split-Path $profile.CurrentUserAllHosts
 $path = Split-Path $path
 

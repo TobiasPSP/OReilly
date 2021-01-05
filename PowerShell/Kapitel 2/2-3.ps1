@@ -1,4 +1,4 @@
-﻿# benötigte .NET Bibliothek laden:
+# benötigte .NET Bibliothek laden:
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 # ZIP-Datei öffnen (ZIP-Datei muss existieren!)

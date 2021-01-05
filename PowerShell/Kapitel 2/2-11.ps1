@@ -1,4 +1,4 @@
-﻿# Ordner anlegen, in dem die ZIP-Datei gespeichert werden soll:
+# Ordner anlegen, in dem die ZIP-Datei gespeichert werden soll:
 New-Item -Path c:\meineZipDateien -ItemType Directory -ErrorAction Ignore
 
 # alle PowerShell-Skripte im Benutzerprofil suchen

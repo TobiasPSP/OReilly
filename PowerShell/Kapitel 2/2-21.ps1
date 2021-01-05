@@ -1,4 +1,4 @@
-﻿# Noten in Frequenzen übersetzen:
+# Noten in Frequenzen übersetzen:
 $scale = @{
     D4b=297
     D4=293

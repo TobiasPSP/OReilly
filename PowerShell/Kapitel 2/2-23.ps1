@@ -1,4 +1,4 @@
-﻿# Pfadname der MIDI-Datei
+# Pfadname der MIDI-Datei
 # Achtung: es wird vorausgesetzt, dass sich dieses Skript in demselben Ordner
 # befindet wie die heruntergeladene MIDI-Datei, und dass diese Datei
 # "imperialmarch.mid" heisst. Sie müssen dieses Skript also unbedingt

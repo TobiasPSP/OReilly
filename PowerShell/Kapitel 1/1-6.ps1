@@ -1,4 +1,4 @@
-﻿#requires -RunAsAdmin
+#requires -RunAsAdmin
 # (in einer PowerShell mit vollen Administrator-Rechten ausführen!)
 
 # diese Werte bei Bedarf anpassen:

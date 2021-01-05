@@ -1,4 +1,4 @@
-﻿# URL der MIDI-Datei für den "Imperial March"
+# URL der MIDI-Datei für den "Imperial March"
 # Achtung: Internetadressen veralten schnell. Wenn dieser Download nicht mehr
 # zur Verfügung steht, googeln Sie wie angegeben selbst und verwenden die
 # Internetadresse einer anderen MIDI-Datei

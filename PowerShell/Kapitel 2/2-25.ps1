@@ -1,4 +1,4 @@
-﻿# Achtung: es wird vorausgesetzt, dass sich dieses Skript in demselben Ordner
+# Achtung: es wird vorausgesetzt, dass sich dieses Skript in demselben Ordner
 # befindet wie die MIDI-Datei, die Sie nach PDF konvertieren wollen,
 # und dass diese Datei "imperialmarch.mid" heisst. 
 # Sie müssen dieses Skript also unbedingt

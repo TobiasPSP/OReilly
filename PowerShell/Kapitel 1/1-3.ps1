@@ -1,4 +1,4 @@
-﻿Get-Process | 
+Get-Process | 
 Where-Object MainWindowHandle | 
 Select-Object -Property Name, Id, Description | 
 Sort-Object -Property Name | 

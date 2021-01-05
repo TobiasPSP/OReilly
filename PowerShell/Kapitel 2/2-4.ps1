@@ -1,4 +1,4 @@
-﻿# Ausgabeordner anlegen:
+# Ausgabeordner anlegen:
 $null = New-Item -Path c:\temp\inhalte -ItemType Directory -ErrorAction Ignore
 
 # die .NET Bibliothek nachladen, die Expand-Archive nutzt:

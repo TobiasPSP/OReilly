@@ -1,1 +1,1 @@
-﻿$host.PrivateData.ErrorForegroundColor = 'Green'
+$host.PrivateData.ErrorForegroundColor = 'Green'
