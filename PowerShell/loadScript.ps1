@@ -28,8 +28,15 @@
     
     $code = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/TobiasPSP/OReilly/main/PowerShell/Kapitel%20$id1/$id1-$id2.ps1"
     
-    $code.Trim() | Set-ClipBoard
-    Write-Host "Listing $id1.$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
-    
-    if ($Run) { Invoke-Expression $code.Trim() }
-    
+    if ($Run) 
+    { 
+      Write-Host "Listing $id1.$id2 wird ausgeführt."
+      [ScriptBlock]$sb = [ScriptBlock]::Create($code.Trim())
+      $sb
+      $sb.Invoke()
+    }
+    else
+    {
+      $code.Trim() | Set-ClipBoard
+      Write-Host "Listing $id1.$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
+    }
