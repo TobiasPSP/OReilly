@@ -1,5 +1,2 @@
-$datum = Get-Date
-$zeitstempel = $datum.ToString('yyyy-MM-dd-HH_mm_ss')
-$dateiname = "report_$zeitstempel.txt"
-$pfadname = Join-Path -Path $env:temp -ChildPath $dateiname
-$pfadname
+$eingabe = Read-Host -Prompt 'Geburtstag' 
+Get-Date -Date $eingabe -Format '"Sie sind ein" dddd"s-Kind!"'

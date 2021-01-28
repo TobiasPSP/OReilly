@@ -1,2 +1,2 @@
-Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\' | 
-Select-Object -Property DisplayVersion, CurrentBuildNumber, UBR, RegisteredOwner, RegisteredOrganization
+$lottozahlen = 1..49 | Get-Random -Count 7
+"Ihre Ziehung: $lottozahlen"

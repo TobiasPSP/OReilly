@@ -1,6 +1,3 @@
-Get-Process | 
-Where-Object MainWindowHandle | 
-Select-Object -Property Name, Id, Description | 
-Sort-Object -Property Name | 
-Out-GridView -Title 'Prozesse' -OutputMode Multiple | 
-Stop-Process -WhatIf
+[System.Net.ServicePointManager]::SecurityProtocol =
+[System.Net.ServicePointManager]::SecurityProtocol -bor
+[System.Net.SecurityProtocolType]::Tls12

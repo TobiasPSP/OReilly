@@ -1,4 +1,4 @@
-$zeitstempel = Get-Date -Format 'yyyy-MM-dd-HH_mm_ss'
-$dateiname = "report_$zeitstempel.txt"
-$pfadname = Join-Path -Path $env:temp -ChildPath $dateiname
-$pfadname
+$path = "$env:temp\report.html"
+$daten = Get-Service
+$tabelle = { New-HTMLTable -DataTable $daten }
+New-HTML -HtmlData $tabelle -FilePath $path -ShowHTML -TitleText 'Dienste'

@@ -1,4 +1,1 @@
-function prompt {
-   'PS> '
-   $host.UI.RawUI.WindowTitle = Get-Location
-}
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
