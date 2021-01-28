@@ -2,7 +2,10 @@
     (
         [Parameter(Mandatory,HelpMessage='Geben Sie die Listingnummer im Format X.Y ein, z.B. 1.2')]
         [string]
-        $Id
+        $Id,
+
+        [Switch]
+        $Run
     )
     
     $AllProtocols = [System.Net.SecurityProtocolType]'Tls12' 
@@ -27,4 +30,6 @@
     
     $code.Trim() | Set-ClipBoard
     Write-Host "Listing $id1.$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
+    
+    if ($Run) { Invoke-Expression $code.Trim() }
     
