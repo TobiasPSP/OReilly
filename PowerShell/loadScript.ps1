@@ -27,3 +27,4 @@
     
     $code.Trim() | Set-ClipBoard
     Write-Host "Listing $id1.$id2 liegt in der Zwischenablage. Fügen Sie es mit STRG+V in Ihre Konsole oder Editor ein."
+    
