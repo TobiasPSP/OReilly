@@ -30,7 +30,7 @@
     
     if ($Run) 
     { 
-      Write-Host "Listing $id1.$id2 wird ausgeführt."
+      Write-Host "Listing $id1.$id2 wird ausgeführt:"
       [ScriptBlock]$sb = [ScriptBlock]::Create($code.Trim())
       $sb
       $sb.Invoke()
