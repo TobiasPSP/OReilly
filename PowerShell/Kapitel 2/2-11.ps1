@@ -1,1 +1,2 @@
-Read-Host -Prompt 'Geburtstag' | Get-Date -Format '"Sie sind ein" dddd"s-Kind!"'
+Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\' | 
+Select-Object -Property DisplayVersion, CurrentBuildNumber, UBR, RegisteredOwner, RegisteredOrganization

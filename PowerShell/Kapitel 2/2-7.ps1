@@ -1,16 +1,42 @@
-# aus diesen Zeichen soll das Kennwort bestehen können:
-$text = 'a,b,c,d,e,f,g,h,k,m,n,p,r,s,t,u,v,w,x,y,z,2,3,4,5,6,7,8,9,!,$,%,&,=,?' 
+function Expand-ArchivePart
+{
+  param
+  (
+    [String]
+    [Parameter(Mandatory)]
+    $Path,
+  
+    [String]
+    [Parameter(Mandatory)]
+    $Destination,
+    
+    [String]
+    $Filter = '*'
+  )
+  
+  # Zielordner anlegen, falls er noch nicht existiert:
+  $exists = Test-Path -Path $Destination
+  if ($exists -eq $false)
+  {
+    $null = New-Item -Path $Destination -ItemType Directory 
+  }
+  
+  Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-# den langen Text an den Kommata aufsplitten. In $zeichen liegen nun die
-# einzelnen Zeichen
-$zeichen = $text -split ','
+  $zip = [System.IO.Compression.ZipFile]::OpenRead($Path)
 
-# aus den verfügbaren Zeichen für das Kennwort 6 Zeichen auswählen:
-$zufallsauswahl = $zeichen | Get-Random -Count 6 
+  # Alle Dateien in der ZIP-Datei auflisten...
+  $zip.Entries | 
+  # ...nur die Dateien wählen, die auf "PNG" enden...
+  Where-Object { $_.FullName -like $Filter } |
+  # ...und diese alle in den gewünschten Zielordner auspacken 
+  # (Zielordner muss existieren):
+  ForEach-Object { 
+    [System.IO.Compression.ZipFileExtensions]::ExtractToFile($_,
+      "$Destination\$_", 
+    $true) 
+  }
 
-# die zufällig gewählten Zeichen mit -join zu einem Gesamttext zusammenfügen
-# und zwischen den Zeichen kein Verbindungszeichen verwenden
-$kennwort = $zufallsauswahl -join ''
-
-# Kennwort ausgeben:
-"Kennwort: $kennwort"
+  # ZIP-Datei wieder schließen
+  $zip.Dispose()
+}

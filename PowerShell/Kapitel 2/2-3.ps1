@@ -1,11 +1,9 @@
-# benötigte .NET Bibliothek laden:
-Add-Type -AssemblyName System.IO.Compression.FileSystem
+# neuen Ordner anlegen (Fehler ignorieren):
+New-Item -Path 'c:\report' -ItemType Directory -ErrorAction Ignore
 
-# ZIP-Datei öffnen (ZIP-Datei muss existieren!)
-$datei = [System.IO.Compression.ZipFile]::OpenRead('c:\temp\datei.zip')
+# Batterie-Report der letzten 14 Tage generieren 
+# und als HTML speichern:
+powercfg /batteryreport /duration 14 /output c:\report\report.html 
 
-# Inhaltsverzeichnis auslesen:
-$datei.Entries
-
-# Datei wieder schließen und Speicher freigeben:
-$datei.Dispose()
+# Generierten Report mit Browser öffnen:
+Invoke-Item -Path 'c:\report\report.html'

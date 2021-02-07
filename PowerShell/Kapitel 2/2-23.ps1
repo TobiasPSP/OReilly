@@ -1,33 +1,29 @@
-# Speicherort für heruntergeladene MIDI-Datei:
-$MidiFile = Join-Path -Path $env:temp -ChildPath 'imperialmarch.mid'
+# Pfadname zur vorher heruntergeladenen MIDI-Datei:
+$filename = Join-Path -Path $env:temp -ChildPath 'imperialmarch.mid'
 
-# Dateiname der PDF-Datei, die generiert werden soll:
-$PdfFile = Join-Path -Path $env:temp -ChildPath 'imperialmarch.pdf'
+# MIDI-Befehle nachladen
+Add-Type -AssemblyName PresentationCore
 
-# Notenblätter als MIDI-Datei herunterladen:
-Invoke-RestMethod -UseBasicParsing -Uri $url -OutFile $MidiFile
+# neuen Mediaplayer beschaffen:
+$player = [System.Windows.Media.MediaPlayer]::new()
 
-# Pfadname von MuseScore (muss installiert sein)
-# ACHTUNG: PASSEN SIE DIESEN PFAD WIE IM KAPITEL BESCHRIEBEN AN!
-# ER MUSS AUF IHRE KONKRETE MUSESCORE-ANWEISUNG WEISEN!
-$muse = 'C:\Program Files\MuseScore 3\bin\MuseScore3.exe'
-$exists = Test-Path -Path $muse
-if ($exists -eq $false)
-{
-  # wenn Sie MuseScore über scoop installiert haben, ist dieser Pfad richtig:
-  $muse = "$home\Scoop\Apps\musescore\current\bin\musescore.exe"
-  $exists = Test-Path -Path $muse
-  if ($exists -eq $false)
-  {
-    throw 'MuseScore nicht gefunden. Kontrollieren Sie den Pfad! '
-  }
-}
+# MIDI-Datei öffnen, abspielen und schließen:
+$player.Open($filename)
 
-# MuseScore aufrufen, Argumente übergeben und auf Abschluss warten:
-# (ACHTUNG: MuseScore-Parameter sind case-sensitive, unterscheiden also
-#  zwischen Groß- und Kleinschreibung! Der richtige Parameter lautet -o
-#  wie in "Otto" und muss kleingeschrieben sein!)
-Start-Process -Wait -FilePath $muse -ArgumentList '-o', $PdfFile, $MidiFile
+# MIDI-Datei wird asynchron im Hintergrund abgespielt
+# PowerShell läuft weiter. Sie könnten also MIDI-Dateien
+# im Hintergrund abspielen, während Ihr PowerShell-Skript
+# andere Aufgaben bearbeitet.
+$player.Play()
 
-# PDF-Datei öffnen (PDF-Viewer nötig)
-Invoke-Item -Path $PdfFile
+# in diesem Fall hat PowerShell nichts weiter zu tun und
+# wartet also, bis der Anwender mit ENTER genug gehört hat:
+$null = Read-Host -Prompt 'Drücken Sie ENTER, um zu beenden'
+
+$player.Stop()
+
+# Wichtig: nur wenn der MIDI-Synthesizer geschlossen wird, können andere
+# Programme wieder MIDI-Daten abspielen. Solange MIDI von einem
+# Programm genutzt wird, ist die MIDI-Ausgabe anderer Programme
+# nicht zu hören:
+$player.Close()
