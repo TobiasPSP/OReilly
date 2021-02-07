@@ -1,1 +1,2 @@
-Get-ClipBoard | Out-String | Invoke-Expression
+Install-Module -Name PowerShellGet -Scope CurrentUser -Force -AllowClobber
+Install-Module -Name Packagemanagement -Scope CurrentUser -Force -AllowClobber

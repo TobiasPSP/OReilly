@@ -4,18 +4,8 @@
 # dieses Skript macht nur Sinn, wenn das Betriebssystem "Windows" ist:
 if ($isWindows -eq $false) 
 {
-    Write-Warning "Das Spiegeln auf das Windows PowerShell-Profil ist nur bei Windows möglich."
+    Write-Warning "Spiegeln der Profile ist nur bei Windows möglich."
     Write-Warning "Andere Betriebssysteme verfügen über kein Windows PowerShell"
-}
-
-
-# nur sinnvoll für PowerShell-Konsolen 
-# (nicht für den ISE-Editor, den es bei PowerShell Core nicht gibt, also kann auch sein Profil nicht gespiegelt werden)
-if ($host.Name -ne 'ConsoleHost')
-{
-    Write-Warning 'Nur PowerShell-Konsolen existieren als Zwillinge in Windows PowerShell und PowerShell'
-    Write-Warning 'Deshalb kann auch nur dort das Profil gespiegelt werden.'
-    Write-Warning 'Führen Sie dieses Skript in einer PowerShell-Konsole oder VSCode aus!'
     return
 }
 
@@ -23,12 +13,14 @@ if ($host.Name -ne 'ConsoleHost')
 if ($PSVersionTable.PSEdition -eq 'Core')
 {
     # Pfad zum Windows PowerShell Profilskript berechnen: 
-    $winprofile = $profile -replace '\\PowerShell\\', '\WindowsPowerShell\'
+    $winprofile = $profile.CurrentUserAllHosts -replace '\\PowerShell\\', '\WindowsPowerShell\'
+    $coreprofile = $profile
 }
 else
 {
     # Pfad steht bei Windows PowerShell schon in $profile:
-    $winprofile = $profile
+    $winprofile = $profile.CurrentUserAllHosts
+    $coreprofile =  $profile -replace '\WindowsPowerShell\','\\PowerShell\\'
 }
 
 # Datei anlegen, wenn noch nicht vorhanden
@@ -43,20 +35,12 @@ else
     Write-Warning "Profilskript für Windows PowerShell war vorhanden."
 }
 
-# wenn dies eine Windows PowerShell ist, sind wir fertig
-if ($PSVersionTable.PSEdition -ne 'Core') 
-{
-    # Profilskript im Editor öffnen:
-    Invoke-Item -Path $winprofile 
-    return 
-}
-
 # testen, ob Profilskript für PowerShell existiert
-$exists = Test-Path -Path $profile
+$exists = Test-Path -Path $coreprofile
 if ($exists)
 {
     # ist die Profildatei vielleicht bereits gespiegelt?
-    $datei = Get-Item -Path $profile
+    $datei = Get-Item -Path $coreprofile
     if ($datei.LinkType -eq 'HardLink')
     {
         # wir sind fertig
@@ -64,7 +48,7 @@ if ($exists)
 
         # Profilskript im Editor öffnen:
         Invoke-Item -Path $winprofile 
-        return
+        Return
     }
     else
     {
@@ -82,15 +66,15 @@ if ($exists)
         if ($LASTEXITCODE -eq 2) { return }
         
         # Profildatei löschen
-        Remove-Item -Path $Profile -Force
+        Remove-Item -Path $coreprofile -Force
     }
 }
 
 # Hardlink anlegen (erfordert Adminrechte)
-$null = New-Item -Path $profile -ItemType HardLink -Value $winprofile 
+$null = New-Item -Path $coreprofile -ItemType HardLink -Value $winprofile 
 
 Write-Warning 'Profildatei von Windows PowerShell wird nun mitgenutzt.'
-Write-Warning "Um die Spiegelung aufzuheben, einfach die Profildatei $profile löschen und von Hand oder im Editor neu angelegen."
+Write-Warning "Um die Spiegelung aufzuheben, einfach die $profile löschen und von Hand oder im Editor neu angelegen."
 
 # Profilskript im Editor öffnen:
 Invoke-Item -Path $winprofile
