@@ -20,7 +20,7 @@ else
 {
     # Pfad steht bei Windows PowerShell schon in $profile:
     $winprofile = $profile.CurrentUserAllHosts
-    $coreprofile =  $profile -replace '\WindowsPowerShell\','\\PowerShell\\'
+    $coreprofile =  $profile -replace '\\WindowsPowerShell\\','\PowerShell\'
 }
 
 # Datei anlegen, wenn noch nicht vorhanden
