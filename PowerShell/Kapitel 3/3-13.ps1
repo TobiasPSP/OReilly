@@ -1,24 +1,16 @@
-function Out-TextToSpeech
+# Profil für aktuellen Benutzer, das für alle Hosts gilt:
+$Path = $profile.CurrentUserAllHosts
+
+# prüfen, ob Datei schon existiert:
+$vorhanden = Test-Path -Path $Path
+
+# falls nicht existiert...
+if (-not $vorhanden)
 {
-  [CmdletBinding()]
-  param
-  (
-    [string]
-    $Text='Hello User!', 
-
-    [int]
-    $LanguageId = 409,
-
-    [int]
-    $Rate = 0 
-  )
-
-  $Text = 'I am PowerShell, and your system will shut down soon.'
-  $Rate = 0
-  $LangId = 409
-
-  $tts = New-Object -ComObject Sapi.SpVoice
-  $tts.Rate = $Rate
-  $ttsText = "<lang langid='$LangId'>$Text</lang>"
-  $null = $tts.Speak($ttsText)
+    # Datei inklusive aller fehlenden Unterordner anlegen:
+    $null = New-Item -Path $Path -ItemType File -Force
 }
+
+# Datei nun mit dem assoziierten Programm öffnen und im Kontextmenü
+# den Befehl "Bearbeiten" (Edit) aufrufen:
+Start-Process -FilePath $Path -Verb Edit

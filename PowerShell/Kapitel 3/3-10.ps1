@@ -1,3 +1,1 @@
-# verschlüsselte Informationen entschlüsseln...
-$Path = "$home\credstore.xyz"
-$anmeldeInfos =  Import-Clixml -Path $Path
+powershell -NoProfile -Command "Get-Service | Where-Object CanStop | Out-GridView -Title \"Welchen Dienst stoppen?\" -PassThru | Stop-Service -whatIf"

@@ -1,16 +1,24 @@
-# Profil für aktuellen Benutzer, das für alle Hosts gilt:
-$Path = $profile.CurrentUserAllHosts
+#requires -RunAsAdmin
+# benötigt Admin-Rechte, um das Security-Ereignislogbuch von Windows zu lesen
 
-# prüfen, ob Datei schon existiert:
-$vorhanden = Test-Path -Path $Path
-
-# falls nicht existiert...
-if (-not $vorhanden)
-{
-    # Datei inklusive aller fehlenden Unterordner anlegen:
-    $null = New-Item -Path $Path -ItemType File -Force
-}
-
-# Datei nun mit dem assoziierten Programm öffnen und im Kontextmenü
-# den Befehl "Bearbeiten" (Edit) aufrufen:
-Start-Process -FilePath $Path -Verb Edit
+# Ereignisse mit ID 4634 (Abmeldung) aus dem Security-Logbuch:
+Get-WinEvent -FilterHashtable @{
+  LogName = 'Security'
+  Id = 4634
+} | 
+# empfangene Objekte weiter aufbereiten:
+ForEach-Object {
+  if ($_.Properties[0].Value -ne 'S-1-5-18')
+  {
+    # nützliche Informationen aus dem Ereignis in einem eigenen
+    # Objekt zusammenfassen:
+    [PSCustomObject]@{
+      Time = $_.TimeCreated
+      Type = 'LogoffSuccess'
+      User = '{0}\{1}' -f $_.Properties[2].Value, $_.Properties[1].Value
+      Sid  = $_.Properties[0].Value
+    }
+  }
+} | 
+# Ergebnisse in einem GridView anzeigen:
+Out-GridView

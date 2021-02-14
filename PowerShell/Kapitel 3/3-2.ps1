@@ -1,26 +1,16 @@
-# testordner anlegen:
-# (ändern Sie den Namen des Testordners bei Bedarf)
-$testordner = 'c:\testordner'
-$null = New-Item -Path c:\testordner -ItemType Directory -ErrorAction Ignore
+# funktioniert bei allen PowerShell-Versionen:
 
-# testscript anlegen:
-$skript = Join-Path -Path $testordner -ChildPath 'Stop-LaufendeDienste.ps1'
-{
-  Get-Service | 
-  Where-Object CanStop | 
-  Out-GridView -Title "Welchen Dienst stoppen?" -PassThru |
-  Stop-Service -whatIf
-} | Out-File -FilePath $skript
+# auf ENTER-Taste warten:
+$null = Read-Host 'EINGABETASTE drücken'
 
-Write-Warning "Neues Skript angelegt: $skript"
+# 5 Sekunden warten lassen (reine Zeitverzögerung):
+Start-Sleep -Seconds 5
 
-# Ordner, in dem das Skript liegt, für die Dauer dieser PowerShell-
-# Sitzung in die Umgebungsvariable $env:path aufnehmen:
-# (die Variable enthält eine Semikolon-separierte Liste mit Ordner-
-#  namen, die automatisch vom Betriebssystem durchsucht werden,
-#  wenn keine absoluten Pfadnamen verwendet werden)
-$env:Path += ";$testordner"
+# funktioniert bei allen Konsolenfenstern (nicht beim ISE-Editor!)
 
-# Skript kann nun allein über seinen Namen aufgerufen werden
-# und benimmt sich wie ein neuer Befehl:
-Write-Warning "Probieren Sie den neuen Befehl Stop-LaufendeDienste aus!"
+# auf beliebigen Tastendruck warten:
+Write-Host 'Bitte beliebige Taste drücken!'
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+
+# funktioniert nur beim Windows-Betriebssystem:
+cmd.exe /c pause  # nur bei Windows

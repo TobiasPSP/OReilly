@@ -1,9 +1,12 @@
-# hier werden die verschlüsselten Informationen gespeichert:
-$Path = "$home\credstore.xyz"
+#requires -Version 2.0 -Modules ScheduledTasks
 
-# tragen Sie hier so viele Identitäten ein,
-# wie Sie benötigen:
-@{
-  ErsteIdentitaet = Get-Credential
-  ZweiteIdentitaet = Get-Credential
-} | Export-Clixml -Path $Path
+$taskName = "Update PowerShell Module"
+$description = "Überprüft und aktualisiert PowerShell-Module"
+
+# was soll geschehen?
+$taskAction = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-noprofile -executionpolicy bypass -file c:\autostartskripte\updatemodules.ps1'
+# wann soll es geschehen?
+$taskTrigger = New-ScheduledTaskTrigger -AtLogOn -User $env:username
+
+# Aufgabe registrieren:
+Register-ScheduledTask -TaskName $taskName -Action $taskAction -Trigger $taskTrigger -Description $description

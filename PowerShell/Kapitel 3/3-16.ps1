@@ -1,20 +1,9 @@
-function Out-TextToSpeech
-{
-  [CmdletBinding()]
-  param
-  (
-    [Parameter(Mandatory)]
-    [string]
-    $Text, 
+# hier werden die verschlüsselten Informationen gespeichert:
+$Path = "$home\credstore.xyz"
 
-    [int]
-    $LanguageId = 409,
-
-    [int]
-    $Rate = 0 
-  )
-  $tts = New-Object -ComObject Sapi.SpVoice
-  $tts.Rate = $Rate
-  $ttsText = "<lang langid='$LanguageId'>$Text</lang>"
-  $null = $tts.Speak($ttsText)
-}
+# tragen Sie hier so viele Identitäten ein,
+# wie Sie benötigen:
+@{
+  ErsteIdentitaet = Get-Credential
+  ZweiteIdentitaet = Get-Credential
+} | Export-Clixml -Path $Path

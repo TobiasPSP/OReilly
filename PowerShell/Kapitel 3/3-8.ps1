@@ -1,1 +1,1 @@
-$PSDefaultParameterValues.Add('*:Encoding', 'UTF8')
+notepad "$home\powershell_updates.log"
