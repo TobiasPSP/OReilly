@@ -22,4 +22,4 @@ $inhalt = {
 }
 
 # Tabelle generieren und anzeigen:
-New-HTML -Name 'Dienste-Übersicht' -FilePath $path -Show -HtmlData $inhalt -AutoRefresh 10
+New-HTML -Name 'Dienste-Übersicht' -FilePath $path -Show -HtmlData $inhalt
