@@ -1,0 +1,1 @@
+-join ('abcdefghkmnprstuvwxyz23456789!"§$%&/()=?'.ToCharArray() | Get-Random -Count 7)
