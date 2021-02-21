@@ -1,0 +1,2 @@
+# Zielordner öffnen
+explorer $ziel

@@ -1,0 +1,1 @@
+$PSDefaultParameterValues['*:Encoding'] = 'utf8'
