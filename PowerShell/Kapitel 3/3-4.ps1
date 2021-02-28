@@ -1,40 +1,31 @@
-[Flags()]
-enum Topping {
-  Nichts = 0
-  Käse = 1
-  Tomatensauce = 2
-  Schinken = 4
-  Salami = 8
-  Pepperoni = 16
-  Zwiebeln = 32
+# auszuführenden Code in geschwungenen Klammern definieren
+# ersetzen Sie den Code durch beliebigen anderen PowerShell-Code,
+# wenn Sie mögen. Die maximale Länge darf 2000 Zeichen nicht 
+# überschreiten:
+$code = {
+  Get-Service | 
+  Where-Object CanStop | 
+  Out-GridView -Title "Welchen Dienst stoppen?" -PassThru |
+  Stop-Service -whatIf
 }
 
-# Klartextnamen repräsentieren eigentlich Bits:
-[Topping]$Belag = 'Käse','Salami','Zwiebeln'
+# Methoden des Betriebssystems wandeln den Code zuerst in Bytes um...
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($code)
+# ...danach werden diese Bytes in einen Base64-String verwandelt:
+$encoded = [Convert]::ToBase64String($bytes)
 
-# gespeichert werden alle Bits in einer speicherplatzschonenden einzelnen Zahl:
-[int]$Belag
+# daraus wird der Befehl konstruiert:
 
-# diese Zahl kann jederzeit in die Klartextnamen umgewandelt werden:
-[Topping]41
+# zuerst PowerShell-Art feststellen:
+if ($PSVersionTable.Edition -eq 'Core')
+{
+  $ps = 'pwsh'
+}
+else
+{
+  $ps = 'powershell'
+}
+# dann Befehlszeile zusammenstellen:
+"$ps -noprofile -EncodedCommand $encoded" | Set-ClipBoard
 
-# neuen Belag hinzufügen:
-$Belag += 'Pepperoni'
-$Belag
-
-# der Zahlenwert wird automatisch umberechnet:
-[int]$Belag
-
-# Belag entfernen:
-$Belag -= 'Zwiebeln'
-$Belag
-
-# der Zahlenwert wird automatisch umberechnet:
-[int]$Belag
-
-# tatsächlich wird jeder Belag intern als Bit (1 oder 0) 
-# in einer Bitmaske repräsentiert:
-[Convert]::ToString([int]$Belag, 2)
-
-# prüfen, ob Liste einen bestimmten Wert enthält, z.B. "Käse":
-($belag -band 'Käse').Count -gt 0
+Write-Warning 'Befehlszeile liegt in der Zwischenablage.'

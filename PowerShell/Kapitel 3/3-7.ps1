@@ -1,28 +1,40 @@
-# Pfadnamen zu einem Logfile festlegen, wo Updates protokolliert werden
-$logfile = Join-Path -Path $home -ChildPath powershell_updates.log
-# Bildschirmausgaben an Logfile anhängen
-Start-Transcript -Path $logfile -Append
-
-# try...finally sorgt dafür, dass der Code in "finally" AUF JEDEN FALL
-# ausgeführt wird, also auch dann, wenn der Code in "try" z.B. mit CTRL+C
-# abgebrochen wird.
-try
-{
-
-  # vorübergehend PowerShellGallery auf "Trusted" setzen, um ohne Rückfragen
-  # bestehende Module zu aktualisieren:
-  Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-
-  # Alle installierten Module überprüfen und bei Bedarf aktualisieren
-  Update-Module -AcceptLicense -Verbose
+[Flags()]
+enum Topping {
+  Nichts = 0
+  Käse = 1
+  Tomatensauce = 2
+  Schinken = 4
+  Salami = 8
+  Pepperoni = 16
+  Zwiebeln = 32
 }
 
-finally
-{
-  # PowerShellGallery wieder auf "Untrusted" setzen, um bei neuen Installationen
-  # zu bestätigen
-  Set-PSRepository -Name PSGallery -InstallationPolicy Untrusted
+# Klartextnamen repräsentieren eigentlich Bits:
+[Topping]$Belag = 'Käse','Salami','Zwiebeln'
 
-  # Log abschließen
-  Stop-Transcript
-}
+# gespeichert werden alle Bits in einer speicherplatzschonenden einzelnen Zahl:
+[int]$Belag
+
+# diese Zahl kann jederzeit in die Klartextnamen umgewandelt werden:
+[Topping]41
+
+# neuen Belag hinzufügen:
+$Belag += 'Pepperoni'
+$Belag
+
+# der Zahlenwert wird automatisch umberechnet:
+[int]$Belag
+
+# Belag entfernen:
+$Belag -= 'Zwiebeln'
+$Belag
+
+# der Zahlenwert wird automatisch umberechnet:
+[int]$Belag
+
+# tatsächlich wird jeder Belag intern als Bit (1 oder 0) 
+# in einer Bitmaske repräsentiert:
+[Convert]::ToString([int]$Belag, 2)
+
+# prüfen, ob Liste einen bestimmten Wert enthält, z.B. "Käse":
+($belag -band 'Käse').Count -gt 0
