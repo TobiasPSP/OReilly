@@ -1,2 +1,1 @@
-ping powershell.one -n 1 -w 2000 | Out-Null 
-if ($LASTEXITCODE -eq 0) { 'erreichbar' }
+Get-Process | & {process {if ($_.Company -like '*Microsoft*') {$_}}} | Select-Object -Property Name, Company, Description, Id

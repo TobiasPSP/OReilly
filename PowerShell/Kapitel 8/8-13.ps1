@@ -1,4 +1,1 @@
-$datum = (Read-Host -Prompt 'Datum eingeben') -as [DateTime]
-if (!$datum) { $datum = Get-Date -Date '2000-01-01' }
-
-$datum
+Get-Process | Foreach-Object { if ($_.Company -like '*Microsoft*') { $_ } } | Select-Object -Property Name, Company, Description, Id

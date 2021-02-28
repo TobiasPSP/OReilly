@@ -1,12 +1,7 @@
-# zuverlässiger Ping-Ersatz
-# funktioniert in PowerShell und WindowsPowerShell:
+$datum = Read-Host -Prompt 'Datum eingeben'
 
-# Die Argumente: Ziel des Pings und sein Timeout in Millisekunden:
-$ComputerName = 'powershell.one'
-$Timeout = 2000
+# falls das eingegebene Datum kein gültiges Datum ist,
+# stattdessen den 1.1.2000 verwenden:
+$datum = ($datum -as [DateTime]) ?? (Get-Date -Date '2000-01-01')
 
-$pinger = [System.Net.NetworkInformation.Ping]::new()
-$ergebnis = $pinger.Send($ComputerName, $Timeout)
-
-# die relevanten Ergebnisse zurückliefern
-$ergebnis | Select-Object -Property Address, Status, RoundTripTime
+$datum
