@@ -1,0 +1,1 @@
+Get-Service | ForEach-Object -Begin { $start = Get-Date } -Process { if ($_.Status -eq 'Running') { Write-Host $_.DisplayName -ForegroundColor Green } else { Write-Host $_.DisplayName -ForegroundColor Red }} -End { $ende = Get-Date; $dauer = $ende - $start; $millisec = $dauer.TotalMilliSeconds; Write-Warning "Ausführungszeit: $millisec ms" }
