@@ -1,0 +1,1 @@
+$proc = [SuperProcess]::new('notepad')
