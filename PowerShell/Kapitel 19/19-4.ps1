@@ -1,7 +1,7 @@
 $xaml = @'
 <Window
-   xmlns=http://schemas.microsoft.com/winfx/2006/xaml/presentation
-   xmlns:x=http://schemas.microsoft.com/winfx/2006/xaml
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    SizeToContent="WidthAndHeight"
    Title="Mitarbeiter aufnehmen"
    WindowStyle="ToolWindow"
@@ -40,7 +40,7 @@ function Convert-XamltoWindow
       if (!$name) { $name=$reader.GetAttribute('x:Name') }
       if($name)
       {$result | 
-         Add-Member NoteProperty -Name $name -Value $result.FindName($name) Force}
+         Add-Member NoteProperty -Name $name -Value $result.FindName($name) -Force}
   }
   $reader.Close()
   $result
