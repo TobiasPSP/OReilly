@@ -3,7 +3,6 @@ Dieses Repository enthält die [Codebeispiele und Materialien](https://github.co
 
 ## ACHTUNG
 Sie finden wichtige Hinweise und Last-Minute Änderungen hier: [Wichtige Ankündigungen](https://github.com/TobiasPSP/OReilly/discussions/categories/wichtig). 
-
 Es hat sich zum Beispiel eine Änderung einer Url ergeben, mit der Sie automatisch Buchskripte herunterladen können ([Details](https://github.com/TobiasPSP/OReilly/discussions/11))
 
 
